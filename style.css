@@ -1,5 +1,52 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(216, 216, 216);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header {
+  background-color: red;
+}
+
+header .logo {
+  width: 80px;
+  height: 80px;
+}
+
+header .search-icon-container {
+  width: 48px;
+  height: 48px;
+}
+
+header .search-icon {
+  width: 24px;
+  height: 24px;
+}
+
+main {
+  height: calc(100vh - 80px);
+  background-image: url("https://thumbs.dreamstime.com/b/pokemon-silhouette-background-vector-cartoon-symbol-art-icon-play-go-sign-concept-ball-pokeball-shape-142904397.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+main .container {
+  height: 100%;
+  background-color: rgb(216, 216, 216);
 }
