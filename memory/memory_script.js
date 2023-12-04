@@ -26,12 +26,13 @@ cards.forEach((image, index) => {
 
 function flipCard() {
     const selectedCard = this;
-    selectedCard.classList.add('flipped');
 
-    // Add an img element to display the image
-    const img = document.createElement('img');
-    img.src = "image" + cards[selectedCard.dataset.index];
-    selectedCard.appendChild(img);
+    // Check if the card is already flipped or if two cards are already selected
+    if (selectedCard.classList.contains('flipped') || selectedCards.length === 2) {
+        return;
+    }
+
+    selectedCard.classList.add('flipped');
 
     // Show the hidden image when the card is flipped
     selectedCard.querySelector('img').style.display = 'block';
@@ -39,6 +40,7 @@ function flipCard() {
     selectedCards.push({ index: selectedCard.dataset.index, image: cards[selectedCard.dataset.index] });
 
     if (selectedCards.length === 2) {
+
         setTimeout(checkMatch, 1500);
     }
 }
@@ -91,6 +93,14 @@ function resetGame() {
         card.classList.add('card');
         card.dataset.index = index;
         card.addEventListener('click', flipCard);
+
+        // Create an img element for each card
+        const img = document.createElement('img');
+        img.src = image;
+
+        // Append the img element to the card
+        card.appendChild(img);
+
         gameBoard.appendChild(card);
     });
 }
