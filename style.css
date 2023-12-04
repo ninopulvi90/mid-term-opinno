@@ -1,5 +1,18 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.button {
+  font-weight: 600;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 200px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }

@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(43, 43, 43);
+}
+
+.bacgroundIMG {
+  background-image: url(/assets/sasso_carta_forbice/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 800px;
+  height: 100vh;
+}
+
+.gameCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(20, 20, 20);
+  /* Start, borderGradient */
+  border: double 2px transparent;
+  border-radius: 30px;
+  background-image: linear-gradient(rgb(20, 20, 20), rgb(20, 20, 20)),
+    radial-gradient(circle at top left, #0387E8, #D83FD9);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  /* End, borderGradient */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 40px;
+}
+
+.gamerSelection {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+}
+
+.inputIMG {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgb(15, 15, 15);
+  box-shadow: inset 0 0 10px #000000;
+}
+
+.paper,
+.rock,
+.scissor {
+  transition: 0.15s ease-in-out;
+}
+
+.paper:hover {
+  box-shadow: inset 0 0 10px #00ff94;
+}
+
+.rock:hover {
+  box-shadow: inset 0 0 10px #bd00ff;
+}
+
+.scissor:hover {
+  box-shadow: inset 0 0 10px #ffe500;
+}
+
+.result {
+  padding: 20px;
+  display: flex;
+  gap: 40px;
+}
+
+.result .playerMove,
+.cpuMove {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.result .playerIMG,
+.cpuIMG {
+  width: 200px;
+  opacity: 0%;
+}
+
+.result .playerMove {
+  box-shadow: inset 0 0 20px black;
+  border-radius: 20px;
+  background-color: rgb(15, 15, 15);
+}
+
+.result .cpuMove {
+  box-shadow: inset 0 0 20px black;
+  border-radius: 20px;
+  background-color: rgb(15, 15, 15);
+}
+
+.result label {
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.gameContainer h3,
+h4 {
+  text-align: center;
+  color: white;
+}
+
+.gameContainer h3 {
+  font-size: 40px;
+  color: rgb(255, 0, 0);
+  padding: 10px 0 40px 0;
+}
+
+.gameContainer h1 {
+  padding: 30px;
+  color: white;
+  font-size: 50px;
+}
+
+.line {
+    background-color: rgb(104, 104, 104);
+    height: 1px;
+    width: 90%;
+    margin: 20px 0;
+}
