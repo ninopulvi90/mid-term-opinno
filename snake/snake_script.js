@@ -1,6 +1,7 @@
 let gameWindow = document.getElementById("game-window");
 let width = 18;
 let snake = [0, 1, 2];
+let movement = 1;
 // console.log (gameGrid[0].length);
 
 function printGameGrid() {
@@ -22,7 +23,7 @@ let gameBtn = document.getElementById("game-btn");
 startBtn.addEventListener("click", () => {
   startBtn.classList.add("none");
   gameBtn.classList.remove("none");
-  snakeMove();
+  snakeGame();
 });
 
 function printSnake() {
@@ -56,5 +57,3 @@ function spawnFruit() {
   gridArray[fruitSpawnSpace].appendChild(fruitImg);
   return fruitSpawnSpace;
 }
-
-function snakeMove() {}
