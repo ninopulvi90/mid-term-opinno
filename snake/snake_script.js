@@ -2,6 +2,10 @@ let gameWindow = document.getElementById("game-window");
 let width = 18;
 let snake = [0, 1, 2];
 let movement = 1;
+let points = 0;
+let pointsDisplay = document.getElementById("points-window");
+points.innerText = "000 points"
+
 // console.log (gameGrid[0].length);
 
 function printGameGrid() {
@@ -60,7 +64,8 @@ function deleteSnake() {
   });
 }
 printSnake();
-spawnFruit();
+
+let fruitLocation = spawnFruit();
 
 //Funzione che genera una posizione casuale in cui far comparire il frutto
 //la function ritornerà le coordinate del frutto
@@ -90,14 +95,23 @@ function snakeGame() {
 //function che 'muove' il serpente
 function snakeMove() {
   deleteSnake();
+  let tail = snake.shift();
   let head = snake[snake.length - 1];
   if (canMove(head, movement, width)) {
     snake.push(head + movement);
-    snake.shift();
   } else {
     alert("hai perso");
   }
   console.log(snake);
+  if (head + movement == fruitLocation){
+    console.log ("hai preso il frutto");
+    points += 100;
+    pointsDisplay.innerText= `${points} points`;
+    //printGameGrid();
+    fruitLocation = spawnFruit();
+    snake.unshift(tail);
+    console.log("dopo unshift", snake);
+  }
   printSnake();
 }
 
