@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="snake_style.css" />
+    <title>Snake</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav></nav>
+    <!-- Div principale -->
+    <div class="flex column container">
+      <!-- Titolo gioco -->
+      <div>
+        <h1>SNAKE</h1>
+      </div>
+      <!-- Finestra gioco -->
+      <div id="points-window" class="points">000 points</div>
+      <div id="game-window" class="game-window">
+        <!-- La finestra dello snake è una griglia 18x18 
+        in cui si muoverà il serpentello -->
+      </div>
+      <div id="start-btn" class="btn">Inizia!</div>
+      <div id="game-btn" class="flex column none">
+        <div>
+          <div id="up-btn" class="btn">UP</div>
+        </div>
+        <div class="flex">
+          <div id="left-btn" class="btn">LEFT</div>
+          <div id="down-btn" class="btn">DOWN</div>
+          <div id="right-btn" class="btn">RIGHT</div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer></footer>
+    <script src="snake_script.js"></script>
+  </body>
+</html>
