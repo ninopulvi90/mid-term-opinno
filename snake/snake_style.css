@@ -26,6 +26,9 @@ INDICE:
     flex-direction: column;
 }
 
+.none {
+    display: none;
+}
 /* PLACEHOLDER NAV E FOOTER */
 
 nav {
@@ -49,4 +52,21 @@ footer{
     height: 600px;
     width: 600px;
     background-color: white;
+    border: 1px solid black;
+}
+
+.btn{
+    font-size: 16px;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 20px;
+    transition: 0.15s ease;
+    border: 1px solid grey;
+    box-shadow: 4px 4px 4px 4px rgb(154, 117, 123);
+    margin: 2px 20px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.01);
 }
