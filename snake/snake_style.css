@@ -48,18 +48,23 @@ footer{
 
 /*02 - FINESTRA PRINCIPALE */
 
-.finestra-gioco {
+.game-window {
     height: 600px;
     width: 600px;
     background-color: white;
-    border: 1px solid black;
+    border: 4px solid black;
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(18,auto);
 }
 
 .points{
     position: absolute;
     right: 0;
     top: -30px;
+    background-color: white;
+    font-size: 20px;
+
 }
 .btn{
     font-size: 16px;
