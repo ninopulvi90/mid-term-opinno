@@ -1,0 +1,52 @@
+/* 
+INDICE:
+00 - CSS RESET
+01 - UTILITÀ
+02 - FINESTRA PRINCIPALE
+03 - SNAKE
+*/
+
+/* 00 - CSS RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 01 - UTILITÀ */
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.column{
+    flex-direction: column;
+}
+
+/* PLACEHOLDER NAV E FOOTER */
+
+nav {
+    height: 50px;
+    background-color: red;
+}
+
+footer{
+    height: 80px;
+    background-color: yellow;
+}
+
+.container {
+    height: calc(100vh - 130px);
+    background-color: pink;
+}
+
+/*02 - FINESTRA PRINCIPALE */
+
+.finestra-gioco {
+    height: 600px;
+    width: 600px;
+    background-color: white;
+}
