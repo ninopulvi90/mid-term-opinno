@@ -82,7 +82,7 @@ main .container {
 
 /* CARD =================== */
 
-.card {
+main .card {
   width: min-content;
   box-shadow: #000 0 0 16px;
   background-color: #fff;
@@ -125,7 +125,7 @@ main .container {
   width: 200px;
 }
 
-.card:hover {
+main .card:hover {
   transform: rotate(360deg) scale(1.3);
 }
 
