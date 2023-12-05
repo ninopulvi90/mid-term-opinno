@@ -21,7 +21,8 @@ body {
 /* HEADER =================== */
 
 header {
-  background-color: rgb(224, 39, 39);
+  /* background-color: rgb(224, 39, 39); */
+  background: linear-gradient(45deg, orange, #f20094);
   color: #fff;
 }
 
@@ -152,7 +153,8 @@ main .card:hover {
 
 /* Footer */
 footer{
-  background-color: rgb(224, 39, 39);
+  /* background-color: rgb(224, 39, 39); */
+  background: linear-gradient(45deg, orange, #f20094);
 }
 
 footer .logo {
