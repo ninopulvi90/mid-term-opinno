@@ -9,24 +9,27 @@
   </head>
 
   <body>
-    <!-- Sasso Carta Forbice -->
+    <!-- Rock Paper Scissor -->
     <div class="bacgroundIMG">
       <div class="gameContainer">
-        <h1>Scissor Paper Rock</h1>
+        <h1>Rock Paper Scissor</h1>
         <div class="gameCard">
           <h4>Make your move!</h4>
           <div class="gamerSelection">
             <img
-              src="/assets/sasso_carta_forbice/paper.png"
-              alt=""
-              class="inputIMG paper"
-            />
-            <img
+              id="btnRock"
               src="/assets/sasso_carta_forbice/rock.png"
               alt=""
               class="inputIMG rock"
             />
             <img
+              id="btnPaper"
+              src="/assets/sasso_carta_forbice/paper.png"
+              alt=""
+              class="inputIMG paper"
+            />
+            <img
+              id="btnScissor"
               src="/assets/sasso_carta_forbice/scissor.png"
               alt=""
               class="inputIMG scissor"
@@ -37,24 +40,29 @@
             <div class="playerMove">
               <label>Player Move</label>
               <img
+                id="playerIMGjs"
                 src="/assets/sasso_carta_forbice/neutral.png"
                 alt=""
-                class="playerIMG"
+                class="playerIMG opacity0"
               />
             </div>
             <div class="cpuMove">
               <label>Cpu Move</label>
               <img
+                id="cpuIMGjs"
                 src="/assets/sasso_carta_forbice/neutral.png"
                 alt=""
-                class="cpuIMG"
+                class="cpuIMG opacity0"
               />
             </div>
           </div>
-          <h3>Result</h3>
-          <div class="button">Try again</div>
+          <div class="resultBox" id="textBox">
+            <h3 id="resultText"></h3>
+          </div>
         </div>
       </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

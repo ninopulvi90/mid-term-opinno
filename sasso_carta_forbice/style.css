@@ -37,7 +37,7 @@ body {
   border: double 2px transparent;
   border-radius: 30px;
   background-image: linear-gradient(rgb(20, 20, 20), rgb(20, 20, 20)),
-    radial-gradient(circle at top left, #0387E8, #D83FD9);
+    radial-gradient(circle at top left, #0387e8, #d83fd9);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   /* End, borderGradient */
@@ -96,7 +96,20 @@ body {
 .result .playerIMG,
 .cpuIMG {
   width: 200px;
+}
+
+.opacity0 {
   opacity: 0%;
+}
+
+.opacity100 {
+  opacity: 100%;
+}
+
+.animation {
+  opacity: 100%;
+  animation: animationPunch 0.3s ease-in-out;
+  animation-iteration-count: 3;
 }
 
 .result .playerMove {
@@ -125,8 +138,7 @@ h4 {
 
 .gameContainer h3 {
   font-size: 40px;
-  color: rgb(255, 0, 0);
-  padding: 10px 0 40px 0;
+  color: rgb(255, 255, 255);
 }
 
 .gameContainer h1 {
@@ -136,8 +148,37 @@ h4 {
 }
 
 .line {
-    background-color: rgb(104, 104, 104);
-    height: 1px;
-    width: 90%;
-    margin: 20px 0;
+  background-color: rgb(104, 104, 104);
+  height: 1px;
+  width: 90%;
+  margin: 20px 0;
+}
+
+.resultBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 440px;
+  height: 100px;
+  margin: 20px;
+  box-shadow: inset 0 0 20px 0 black;
+  border-radius: 20px;
+  background-color: rgb(15, 15, 15);
+  text-transform: uppercase;
+}
+
+/* Animation */
+@keyframes animationPunch {
+  0% {
+    /* transform: translateY(10px); */
+    transform: rotate(30deg);
+  }
+  50% {
+    /* transform: translateY(-10px); */
+    transform: rotate(-30deg);
+  }
+  100% {
+    /* transform: translateY(10px); */
+    transform: rotate(30deg);
+  }
 }
