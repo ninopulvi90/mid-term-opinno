@@ -47,45 +47,6 @@ body {
   display: none;
 }
 
-/* HEADER =================== */
-
-header {
-  background-color: red;
-  color: #fff;
-}
-
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .logo {
-  width: 80px;
-  height: 80px;
-  color: #fff;
-  margin-left: 8px;
-}
-
-header .search-icon-container {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 
-    image is black
-    with invert(100%)
-    becomes white
-*/
-header .search-icon {
-  width: 24px;
-  height: 24px;
-  filter: invert(100%);
-}
-
 footer {
   height: 80px;
   background-color: yellow;
@@ -103,7 +64,7 @@ footer {
 .window-container {
   height: 100vh;
   padding: 60px 500px;
-  background-color: white;
+  background-color: #616948;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -142,17 +103,16 @@ footer {
   -ms-user-select: none;
   user-select: none;
   padding: 15px 40px;
-  background-color: rgb(255, 255, 255);
+  background-color: #8b966e;
   border-radius: 200px;
+  color: #ffffd9;
   cursor: pointer;
   transition: 0.1s ease-in-out;
   border: 1px solid grey;
-  box-shadow: 2px 2px 2px 2px rgb(116, 116, 116);
 }
 
 .btn:hover {
-  cursor: pointer;
-  transform: scale(1.005);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 /* 03 - SNAKE */

@@ -53,6 +53,7 @@ function spawnFruit() {
 
 //function che 'muove' il serpente
 function snakeMove() {
+  lock = true;
   let length = snake.length;
   //difficoltà progressiva
   switch (length) {
@@ -99,13 +100,11 @@ function snakeMove() {
     if (head + movement == fruitLocation) {
       points += 100 * pointModifier;
       pointsDisplay.innerText = `Punteggio: ${points}`;
-      //printGameGrid();
       fruitLocation = spawnFruit();
       snake.unshift(tail);
     }
   } else {
     clearTimeout(gameTimeout);
-    isGameOn = false;
     let gameOverScreen = document.createElement("div");
     gameOverScreen.innerText = "Hai Perso!";
     if (points > highScore) {
@@ -155,6 +154,7 @@ let gridArray = document.getElementsByClassName("grid-item");
 printSnake();
 fruitLocation = spawnFruit();
 let interval = 600;
+let lock = true;
 
 let startBtn = document.getElementById("start-btn");
 let gameBtn = document.getElementById("game-btn");
@@ -185,16 +185,28 @@ let downBtn = document.getElementById("down-btn");
 let upBtn = document.getElementById("up-btn");
 //Event listener dei bottoni che cambiano movimento serpente
 leftBtn.addEventListener("click", () => {
-  if (movement != 1) movement = -1;
+  if (movement != 1 && lock) {
+    lock = false;
+    movement = -1;
+  }
 });
 rightBtn.addEventListener("click", () => {
-  if (movement != -1) movement = 1;
+  if (movement != -1 && lock) {
+    lock = false;
+    movement = 1;
+  }
 });
 upBtn.addEventListener("click", () => {
-  if (movement != width) movement = -width;
+  if (movement != width && lock) {
+    lock = false;
+    movement = -width;
+  }
 });
 downBtn.addEventListener("click", () => {
-  if (movement != -width) movement = width;
+  if (movement != -width && lock) {
+    lock = false;
+    movement = width;
+  }
 });
 //Event listener per i keypress
 document.addEventListener("keydown", (event) => {
