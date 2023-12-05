@@ -81,7 +81,7 @@ main .container {
 
 /* CARD =================== */
 
-.card {
+main .card {
   width: min-content;
   box-shadow: rgba(0, 0, 0, 0.4) 0 0 16px;
   background-color: #fff;
@@ -127,7 +127,7 @@ text-transform: uppercase;
   width: 200px;
 }
 
-.card:hover {
+main .card:hover {
   transform: rotate(360deg) scale(1.2);
 }
 
