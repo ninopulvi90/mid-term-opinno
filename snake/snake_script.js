@@ -33,6 +33,19 @@ function printGameGrid() {
 let startBtn = document.getElementById("start-btn");
 let gameBtn = document.getElementById("game-btn");
 startBtn.addEventListener("click", () => {
+  if (gameCounter != 0){
+    deleteSnake();
+    interval = 600;
+    points=0;
+    pointModifier = 1;
+    movement = 1;
+    snake = [0,1,2];
+    gridArray[fruitLocation].innerHTML="";
+    printSnake()
+    fruitLocation = spawnFruit();
+    document.getElementById("game-over").remove();
+  }
+  gameCounter++;
   startBtn.classList.add("none");
   gameBtn.classList.remove("none");
   setTimeout(snakeMove, interval);
