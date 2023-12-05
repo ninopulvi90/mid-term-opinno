@@ -21,7 +21,8 @@ body {
 /* HEADER =================== */
 
 header {
-  background-color: red;
+  background: linear-gradient(to bottom right, orange, #f20094);
+  /* background-color: red; */
   color: #fff;
 }
 

@@ -18,7 +18,8 @@
 /* 01 - BODY */
 
 body {
-  background-color: #F9B3D1;
+  /* background-color: #F9B3D1; */
+  background: linear-gradient(to bottom right, #f4e784, rgb(255, 0, 183));
 }
 
 /*  02 - GAME CONTAINER */
@@ -43,10 +44,11 @@ body {
 .card {
   width: 100px;
   height: 100px;
+  background: linear-gradient(to bottom right, rgb(255, 0, 183), blue);
   background-color: #ff006e;
   margin: 5px;
   border-radius: 8px;
-  box-shadow: 4px 4px grey;
+  box-shadow: 3px 3px black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,5 +67,5 @@ body {
 .flipped {
   transform: scaleX(-1);
   /* transform: rotateY(180deg); */
-  box-shadow: -4px 4px grey;
+  box-shadow: -3px 3px grey;
 }
