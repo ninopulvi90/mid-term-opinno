@@ -69,6 +69,10 @@ body {
     border-radius: 50%;
     margin-bottom: 20px;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
 }
 
 #grid {
