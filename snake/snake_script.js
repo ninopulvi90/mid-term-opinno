@@ -57,7 +57,7 @@ downBtn.addEventListener("click", () => {
 });
 //Event listener per i keypress
 document.addEventListener("keydown", (event) => {
-  console.log("hai premuto la freccetta:",  event.code);
+  console.log("hai premuto la freccetta:", event.code);
   event.preventDefault();
   switch (event.code) {
     case "ArrowLeft":
@@ -115,26 +115,40 @@ function spawnFruit() {
 //function che 'muove' il serpente
 function snakeMove() {
   let length = snake.length;
-  //serie di ifs per stabilire l'intervallo e modificare il point modifier
-  if (length < 5) {
-    interval = 600;
-    pointModifier = 1;
-  } else if (length >= 6 && length <= 9) {
-    interval = 500;
-    pointModifier = 1.5;
-    console.log("modifier:", pointModifier, "interval", interval);
-  } else if (length > 9 && length <= 13) {
-    interval = 400;
-    pointModifier = 2;
-  } else if (length > 13 && length <= 17) {
-    interval = 300;
-    pointModifier = 2.5;
-  } else if (length > 18 && length <= 25) {
-    interval = 200;
-    pointModifier = 3;
-  } else {
-    interval = 150;
-    pointModifier = 4;
+  //difficoltà progressiva
+  switch (length) {
+    case 3:
+      interval = 600;
+      pointModifier = 1;
+      break;
+    case 5:
+      interval = 500;
+      pointModifier = 1.5;
+      break;
+    case 9:
+      interval = 400;
+      pointModifier = 2;
+      break;
+    case 14:
+      interval = 330;
+      pointModifier = 2.5;
+      break;
+    case 18:
+      interval = 300;
+      pointModifier = 3;
+      break;
+    case 22:
+      interval = 250;
+      pointModifier = 3.5;
+      break;
+    case 25:
+      interval = 200;
+      pointModifier = 4;
+      break;
+    case 30:
+      interval = 100;
+      pointModifier = 5;
+      break;
   }
 
   let gameTimeout = setTimeout(snakeMove, interval);
@@ -157,10 +171,10 @@ function snakeMove() {
     console.log(gameTimeout);
     isGameOn = false;
     let gameOverScreen = document.createElement("div");
-    gameOverScreen.innerText = 'Hai Perso!';
+    gameOverScreen.innerText = "Hai Perso!";
     gameOverScreen.classList.add("game-over-screen");
-    gameOverScreen.setAttribute("id", "game")
-    gameWindow.innerHTML = `<div class="game-over-screen">Hai Perso!</div>`;
+    gameOverScreen.setAttribute("id", "game-over");
+    gameWindow.appendChild(gameOverScreen);
     gameBtn.classList.add("none");
     startBtn.classList.remove("none");
   }
