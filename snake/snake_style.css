@@ -14,16 +14,29 @@ INDICE:
   box-sizing: border-box;
 }
 
-/* 01 - UTILITÀ */
-
-body {
-  font-family: "Roboto", sans-serif, monospace;
+html {
+  font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: rgb(216, 216, 216);
+}
+
+/* UTILITÀ  */
+
+@font-face {
+  font-family: "Pixeloid";
+  src: url("assets/Pixeloid.ttf");
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
 .flex {
   display: flex;
   align-items: center;
-  gap: 30px;
 }
 
 .column {
@@ -33,11 +46,44 @@ body {
 .none {
   display: none;
 }
-/* PLACEHOLDER NAV E FOOTER */
 
-nav {
-  height: 50px;
+/* HEADER =================== */
+
+header {
   background-color: red;
+  color: #fff;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  margin-left: 8px;
+}
+
+header .search-icon-container {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+    image is black
+    with invert(100%)
+    becomes white
+*/
+header .search-icon {
+  width: 24px;
+  height: 24px;
+  filter: invert(100%);
 }
 
 footer {
@@ -45,43 +91,63 @@ footer {
   background-color: yellow;
 }
 
-.container {
-  height: calc(100vh - 50px);
-  background-color: pink;
+.game-container {
+  background-color: #8b966e;
+  padding: 20px auto;
+  border-radius: 50px;
+  border: 10px solid #5b6147;
 }
 
 /*02 - FINESTRA PRINCIPALE */
 
+.window-container {
+  height: 100vh;
+  padding: 60px 500px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 .game-window {
   height: 600px;
   width: 600px;
-  background-color: white;
-  border: 4px solid black;
+  margin-bottom: 40px;
+  background-color: #adb88e;
+  border: 4px solid #5a5f48;
   position: relative;
   display: grid;
   grid-template-columns: repeat(18, auto);
 }
+
 .game-window .grid-item {
-  border: 1px solid green;
-  background-color: lightgreen;
+  margin: 2px;
+  background-color: #c4d0a2;
   position: relative;
 }
 
 .points {
   margin: 30px 100px 0px;
-  background-color: white;
+  background-color: #8b966e;
+  color: #ffffd9;
   font-size: 20px;
+  font-family: "Pixeloid", "Roboto", sans-serif;
 }
 
 .btn {
-  font-size: 16px;
-  padding: 15px 25px;
-  background-color: white;
-  border-radius: 20px;
-  transition: 0.08s ease;
+  margin: 0px 5px 5px 5px;
+  font-weight: 600;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 15px 40px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 200px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
   border: 1px solid grey;
-  box-shadow: 2px 2px 2px 2px rgb(154, 117, 123);
-  margin: 2px 20px;
+  box-shadow: 2px 2px 2px 2px rgb(116, 116, 116);
 }
 
 .btn:hover {
@@ -94,7 +160,7 @@ footer {
 .grid-item .snake-body {
   width: 100%;
   height: 100%;
-  background-color: blue;
+  background-color: #3e4231;
   border-radius: 50%;
   position: relative;
 }
@@ -125,5 +191,5 @@ footer {
   align-items: center;
   font-weight: bolder;
   font-size: 50px;
-  color: red;
+  color: rgb(255, 50, 0);
 }
