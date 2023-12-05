@@ -183,6 +183,16 @@ li {
   font-weight: 500;
 }
 
+li a {
+  text-decoration: none;
+}
+
+
+
+li a:visited, li a:link {
+  color: inherit;
+}
+
 .credits {
   display: flex;
   gap: 20px;
