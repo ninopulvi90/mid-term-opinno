@@ -58,11 +58,11 @@ function snakeMove() {
   //difficoltà progressiva
   switch (length) {
     case 3:
-      interval = 600;
+      interval = 500;
       pointModifier = 1;
       break;
     case 5:
-      interval = 500;
+      interval = 450;
       pointModifier = 1.5;
       break;
     case 9:
@@ -70,7 +70,7 @@ function snakeMove() {
       pointModifier = 2;
       break;
     case 14:
-      interval = 330;
+      interval = 350;
       pointModifier = 2.5;
       break;
     case 18:
@@ -153,7 +153,7 @@ printGameGrid();
 let gridArray = document.getElementsByClassName("grid-item");
 printSnake();
 fruitLocation = spawnFruit();
-let interval = 600;
+let interval = 500;
 let lock = true;
 
 let startBtn = document.getElementById("start-btn");
@@ -162,7 +162,7 @@ startBtn.addEventListener("click", () => {
   //se non è la prima partita riporto tutto alla situazione iniziale
   if (gameCounter != 0) {
     deleteSnake();
-    interval = 600;
+    interval = 500;
     points = 0;
     pointModifier = 1;
     movement = 1;

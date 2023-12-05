@@ -64,7 +64,7 @@ footer {
 .window-container {
   height: 100vh;
   padding: 60px 500px;
-  background-color: #616948;
+  background-color: #484e35;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -74,7 +74,7 @@ footer {
 .game-window {
   height: 600px;
   width: 600px;
-  margin-bottom: 40px;
+  margin: 0px 50px 50px 50px;
   background-color: #adb88e;
   border: 4px solid #5a5f48;
   position: relative;
@@ -89,7 +89,7 @@ footer {
 }
 
 .points {
-  margin: 30px 100px 0px;
+  margin: 30px 50px 0px;
   background-color: #8b966e;
   color: #ffffd9;
   font-size: 20px;
