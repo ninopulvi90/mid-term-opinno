@@ -2,10 +2,16 @@ let gameWindow = document.getElementById("game-window");
 let width = 18;
 let snake = [0, 1, 2];
 let movement = 1;
+let fruitLocation;
 let points = 0;
+let pointModifier = 1;
 let pointsDisplay = document.getElementById("points-window");
-points.innerText = "000 points"
-
+points.innerText = "000 points";
+printGameGrid();
+let gridArray = document.getElementsByClassName("grid-item");
+printSnake();
+fruitLocation = spawnFruit();
+let interval = 600;
 // console.log (gameGrid[0].length);
 
 function printGameGrid() {
@@ -18,16 +24,17 @@ function printGameGrid() {
   }
 }
 
-printGameGrid();
-
-let gridArray = document.getElementsByClassName("grid-item");
+//printGameGrid();
 
 let startBtn = document.getElementById("start-btn");
 let gameBtn = document.getElementById("game-btn");
 startBtn.addEventListener("click", () => {
   startBtn.classList.add("none");
   gameBtn.classList.remove("none");
-  snakeGame();
+  setTimeout(snakeMove, interval);
+  //clearInterval(interval);
+  //let intervalLength = 1000/snake.length;
+  //var refreshInterval = setInterval(snakeMove, 400);
 });
 
 //Bottoni a schermo coi loro event listener
@@ -48,6 +55,25 @@ upBtn.addEventListener("click", () => {
 downBtn.addEventListener("click", () => {
   if (movement != -width) movement = width;
 });
+//Event listener per i keypress
+document.addEventListener("keydown", (event) => {
+  console.log("hai premuto la freccetta:",  event.code);
+  event.preventDefault();
+  switch (event.code) {
+    case "ArrowLeft":
+      document.getElementById("left-btn").click();
+      break;
+    case "ArrowUp":
+      document.getElementById("up-btn").click();
+      break;
+    case "ArrowRight":
+      document.getElementById("right-btn").click();
+      break;
+    case "ArrowDown":
+      document.getElementById("down-btn").click();
+      break;
+  }
+});
 
 function printSnake() {
   snake.forEach((index) => {
@@ -63,9 +89,7 @@ function deleteSnake() {
     gridArray[index].innerHTML = "";
   });
 }
-printSnake();
-
-let fruitLocation = spawnFruit();
+//printSnake();
 
 //Funzione che genera una posizione casuale in cui far comparire il frutto
 //la function ritornerà le coordinate del frutto
@@ -88,30 +112,59 @@ function spawnFruit() {
   return fruitSpawnSpace;
 }
 
-function snakeGame() {
-  setInterval(snakeMove, 500);
-}
-
 //function che 'muove' il serpente
 function snakeMove() {
+  let length = snake.length;
+  //serie di ifs per stabilire l'intervallo e modificare il point modifier
+  if (length < 5) {
+    interval = 600;
+    pointModifier = 1;
+  } else if (length >= 6 && length <= 9) {
+    interval = 500;
+    pointModifier = 1.5;
+    console.log("modifier:", pointModifier, "interval", interval);
+  } else if (length > 9 && length <= 13) {
+    interval = 400;
+    pointModifier = 2;
+  } else if (length > 13 && length <= 17) {
+    interval = 300;
+    pointModifier = 2.5;
+  } else if (length > 18 && length <= 25) {
+    interval = 200;
+    pointModifier = 3;
+  } else {
+    interval = 150;
+    pointModifier = 4;
+  }
+
+  let gameTimeout = setTimeout(snakeMove, interval);
   deleteSnake();
+  let head = snake[length - 1];
   let tail = snake.shift();
-  let head = snake[snake.length - 1];
   if (canMove(head, movement, width)) {
     snake.push(head + movement);
+    if (head + movement == fruitLocation) {
+      console.log("hai preso il frutto");
+      points += 100 * pointModifier;
+      pointsDisplay.innerText = `${points} points`;
+      //printGameGrid();
+      fruitLocation = spawnFruit();
+      snake.unshift(tail);
+      console.log("dopo unshift", snake);
+    }
   } else {
-    alert("hai perso");
+    clearTimeout(gameTimeout);
+    console.log(gameTimeout);
+    isGameOn = false;
+    let gameOverScreen = document.createElement("div");
+    gameOverScreen.innerText = 'Hai Perso!';
+    gameOverScreen.classList.add("game-over-screen");
+    gameOverScreen.setAttribute("id", "game")
+    gameWindow.innerHTML = `<div class="game-over-screen">Hai Perso!</div>`;
+    gameBtn.classList.add("none");
+    startBtn.classList.remove("none");
   }
   console.log(snake);
-  if (head + movement == fruitLocation){
-    console.log ("hai preso il frutto");
-    points += 100;
-    pointsDisplay.innerText= `${points} points`;
-    //printGameGrid();
-    fruitLocation = spawnFruit();
-    snake.unshift(tail);
-    console.log("dopo unshift", snake);
-  }
   printSnake();
 }
 
