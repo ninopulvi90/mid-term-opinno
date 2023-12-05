@@ -62,14 +62,15 @@ header .search-icon {
 main {
   width: 100%;
   height: min-content;
+  min-height: calc(100vh - 80px);
   background-image: url("https://thumbs.dreamstime.com/b/pokemon-silhouette-background-vector-cartoon-symbol-art-icon-play-go-sign-concept-ball-pokeball-shape-142904397.jpg");
   background-position: center;
   background-size: cover;
 }
 
 main .container {
-  height: min-content;
-  background-color: rgb(216, 216, 216);
+  height: 100%;
+  /* background-color: rgb(216, 216, 216); */
   background-color: aquamarine;
   display: flex;
   flex-wrap: wrap;
