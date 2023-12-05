@@ -6,7 +6,11 @@ let fruitLocation;
 let points = 0;
 let pointModifier = 1;
 let pointsDisplay = document.getElementById("points-window");
-points.innerText = "000 points";
+pointsDisplay.innerText = "Punteggio: 000";
+let highScore = 0;
+let highScoreDisplay = document.getElementById("high-score");
+highScoreDisplay.innerText = "High Score: 000"
+let gameCounter = 0;
 printGameGrid();
 let gridArray = document.getElementsByClassName("grid-item");
 printSnake();
@@ -154,13 +158,13 @@ function snakeMove() {
   let gameTimeout = setTimeout(snakeMove, interval);
   deleteSnake();
   let head = snake[length - 1];
-  let tail = snake.shift();
   if (canMove(head, movement, width)) {
+    let tail = snake.shift();
     snake.push(head + movement);
     if (head + movement == fruitLocation) {
       console.log("hai preso il frutto");
       points += 100 * pointModifier;
-      pointsDisplay.innerText = `${points} points`;
+      pointsDisplay.innerText = `Punteggio: ${points}`;
       //printGameGrid();
       fruitLocation = spawnFruit();
       snake.unshift(tail);
@@ -172,6 +176,10 @@ function snakeMove() {
     isGameOn = false;
     let gameOverScreen = document.createElement("div");
     gameOverScreen.innerText = "Hai Perso!";
+    if (points > highScore) {
+      highScore = points;
+      highScoreDisplay.innerText = `High Score: ${highScore}`;
+    }
     gameOverScreen.classList.add("game-over-screen");
     gameOverScreen.setAttribute("id", "game-over");
     gameWindow.appendChild(gameOverScreen);
