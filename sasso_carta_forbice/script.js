@@ -25,7 +25,7 @@ let lock = true;
 function addPlayerMove(moveImageSrc) {
   if (lock == false) return;
   lock = false;
-  boxText.style.boxShadow = "inset 0 0 20px 0 black";
+  boxText.style.border = "0 solid rgba(255,255,255,1)";
   resultText.innerHTML = "";
   cpuMove.src = "/assets/sasso_carta_forbice/neutral.png";
   playerMove.src = "/assets/sasso_carta_forbice/neutral.png";
@@ -77,16 +77,16 @@ function result() {
     // console.log("draw");
     resultText.innerHTML = "Draw";
     resultText.style.color = "#FFFFFF";
-    boxText.style.boxShadow = "0 0 20px 0 rgba(255,255,255,0.6)";
+    boxText.style.border = "2px solid rgba(255,255,255)";
   } else if (playerWin()) {
     // console.log("you won");
     resultText.innerHTML = "You Won!";
     resultText.style.color = "#00FF00";
-    boxText.style.boxShadow = "0 0 20px 0 rgba(0,255,0,0.6)";
+    boxText.style.border = "2px solid rgba(0,255,0)";
   } else {
     // console.log('you lost');
     resultText.innerHTML = "You Lost :(";
     resultText.style.color = "#FF0000";
-    boxText.style.boxShadow = "0 0 20px 0 rgba(255,0,0,0.6)";
+    boxText.style.border = "2px solid rgba(255,0,0)";
   }
 }

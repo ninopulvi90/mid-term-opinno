@@ -4,17 +4,18 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: rgb(43, 43, 43);
+:root {
+  --purple: #bd00ff;
+  --green: #00ff94;
+  --yellow: #ffe500;
 }
 
 .bacgroundIMG {
-  background-image: url(/assets/sasso_carta_forbice/background.jpg);
+  background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url(/assets/sasso_carta_forbice/background4.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: none;
   background-blend-mode: multiply;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .gameContainer {
@@ -24,7 +25,7 @@ body {
   flex-direction: column;
   margin: 0 auto;
   width: 800px;
-  height: 100vh;
+  height: calc(100vh - 84px);
 }
 
 .gameCard {
@@ -64,19 +65,24 @@ body {
 .paper,
 .rock,
 .scissor {
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .paper:hover {
-  box-shadow: inset 0 0 10px #00ff94;
+  border: 2px solid var(--green);
 }
 
 .rock:hover {
-  box-shadow: inset 0 0 10px #bd00ff;
+  border: 2px solid var(--purple);
 }
 
 .scissor:hover {
-  box-shadow: inset 0 0 10px #ffe500;
+  border: 2px solid var(--yellow);
 }
 
 .result {
@@ -96,6 +102,11 @@ body {
 .result .playerIMG,
 .cpuIMG {
   width: 200px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .opacity0 {
@@ -138,13 +149,8 @@ h4 {
 
 .gameContainer h3 {
   font-size: 40px;
+  font-weight: 600;
   color: rgb(255, 255, 255);
-}
-
-.gameContainer h1 {
-  padding: 30px;
-  color: white;
-  font-size: 50px;
 }
 
 .line {
