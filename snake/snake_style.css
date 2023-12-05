@@ -96,15 +96,24 @@ footer {
   height: 100%;
   background-color: blue;
   border-radius: 50%;
+  position: relative;
 }
 
-.grid-item img {
+.grid-item .snake-body #eyes-img {
+  width: 70%;
+  height: 90%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.grid-item #fruit-img {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.game-over-screen{
+.game-over-screen {
   width: 100%;
   height: 100%;
   position: absolute;

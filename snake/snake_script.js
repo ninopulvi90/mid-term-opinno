@@ -1,23 +1,3 @@
-let gameWindow = document.getElementById("game-window");
-let width = 18;
-let snake = [0, 1, 2];
-let movement = 1;
-let fruitLocation;
-let points = 0;
-let pointModifier = 1;
-let pointsDisplay = document.getElementById("points-window");
-pointsDisplay.innerText = "Punteggio: 000";
-let highScore = 0;
-let highScoreDisplay = document.getElementById("high-score");
-highScoreDisplay.innerText = "High Score: 000"
-let gameCounter = 0;
-printGameGrid();
-let gridArray = document.getElementsByClassName("grid-item");
-printSnake();
-fruitLocation = spawnFruit();
-let interval = 600;
-// console.log (gameGrid[0].length);
-
 function printGameGrid() {
   gameWindow.innerHTML = "";
   let j = 0;
@@ -28,76 +8,18 @@ function printGameGrid() {
   }
 }
 
-//printGameGrid();
-
-let startBtn = document.getElementById("start-btn");
-let gameBtn = document.getElementById("game-btn");
-startBtn.addEventListener("click", () => {
-  if (gameCounter != 0){
-    deleteSnake();
-    interval = 600;
-    points=0;
-    pointModifier = 1;
-    movement = 1;
-    snake = [0,1,2];
-    gridArray[fruitLocation].innerHTML="";
-    printSnake()
-    fruitLocation = spawnFruit();
-    document.getElementById("game-over").remove();
-  }
-  gameCounter++;
-  startBtn.classList.add("none");
-  gameBtn.classList.remove("none");
-  setTimeout(snakeMove, interval);
-  //clearInterval(interval);
-  //let intervalLength = 1000/snake.length;
-  //var refreshInterval = setInterval(snakeMove, 400);
-});
-
-//Bottoni a schermo coi loro event listener
-let leftBtn = document.getElementById("left-btn");
-let rightBtn = document.getElementById("right-btn");
-let downBtn = document.getElementById("down-btn");
-let upBtn = document.getElementById("up-btn");
-//Event listener dei bottoni che cambiano movimento serpente
-leftBtn.addEventListener("click", () => {
-  if (movement != 1) movement = -1;
-});
-rightBtn.addEventListener("click", () => {
-  if (movement != -1) movement = 1;
-});
-upBtn.addEventListener("click", () => {
-  if (movement != width) movement = -width;
-});
-downBtn.addEventListener("click", () => {
-  if (movement != -width) movement = width;
-});
-//Event listener per i keypress
-document.addEventListener("keydown", (event) => {
-  console.log("hai premuto la freccetta:", event.code);
-  event.preventDefault();
-  switch (event.code) {
-    case "ArrowLeft":
-      document.getElementById("left-btn").click();
-      break;
-    case "ArrowUp":
-      document.getElementById("up-btn").click();
-      break;
-    case "ArrowRight":
-      document.getElementById("right-btn").click();
-      break;
-    case "ArrowDown":
-      document.getElementById("down-btn").click();
-      break;
-  }
-});
-
 function printSnake() {
   snake.forEach((index) => {
     gridArray[index].innerHTML = "";
     let snakeBody = document.createElement("div");
     snakeBody.classList.add("snake-body");
     gridArray[index].appendChild(snakeBody);
+    if (snake.indexOf(index) == snake.length - 1) {
+      let eyes = document.createElement("img");
+      eyes.src = "../snake/assets/eyes.png";
+      eyes.setAttribute("id", "eyes-img");
+      snakeBody.appendChild(eyes);
+    }
   });
 }
 
@@ -106,7 +28,6 @@ function deleteSnake() {
     gridArray[index].innerHTML = "";
   });
 }
-//printSnake();
 
 //Funzione che genera una posizione casuale in cui far comparire il frutto
 //la function ritornerà le coordinate del frutto
@@ -125,6 +46,7 @@ function spawnFruit() {
 
   let fruitImg = document.createElement("img");
   fruitImg.src = "../snake/assets/apple-3155.png";
+  fruitImg.setAttribute("id", "fruit-img");
   gridArray[fruitSpawnSpace].appendChild(fruitImg);
   return fruitSpawnSpace;
 }
@@ -175,17 +97,14 @@ function snakeMove() {
     let tail = snake.shift();
     snake.push(head + movement);
     if (head + movement == fruitLocation) {
-      console.log("hai preso il frutto");
       points += 100 * pointModifier;
       pointsDisplay.innerText = `Punteggio: ${points}`;
       //printGameGrid();
       fruitLocation = spawnFruit();
       snake.unshift(tail);
-      console.log("dopo unshift", snake);
     }
   } else {
     clearTimeout(gameTimeout);
-    console.log(gameTimeout);
     isGameOn = false;
     let gameOverScreen = document.createElement("div");
     gameOverScreen.innerText = "Hai Perso!";
@@ -199,7 +118,6 @@ function snakeMove() {
     gameBtn.classList.add("none");
     startBtn.classList.remove("none");
   }
-  console.log(snake);
   printSnake();
 }
 
@@ -217,5 +135,83 @@ function canMove(head, movement, width) {
     noBonk = false;
   }
   return noBonk;
-  //aggiungere controllo su barre laterali e su corpo serpente
 }
+
+let gameWindow = document.getElementById("game-window");
+let width = 18;
+let snake = [0, 1, 2];
+let movement = 1;
+let fruitLocation;
+let points = 0;
+let pointModifier = 1;
+let pointsDisplay = document.getElementById("points-window");
+pointsDisplay.innerText = "Punteggio: 000";
+let highScore = 0;
+let highScoreDisplay = document.getElementById("high-score");
+highScoreDisplay.innerText = "High Score: 000";
+let gameCounter = 0;
+printGameGrid();
+let gridArray = document.getElementsByClassName("grid-item");
+printSnake();
+fruitLocation = spawnFruit();
+let interval = 600;
+
+let startBtn = document.getElementById("start-btn");
+let gameBtn = document.getElementById("game-btn");
+startBtn.addEventListener("click", () => {
+  //se non è la prima partita riporto tutto alla situazione iniziale
+  if (gameCounter != 0) {
+    deleteSnake();
+    interval = 600;
+    points = 0;
+    pointModifier = 1;
+    movement = 1;
+    snake = [0, 1, 2];
+    gridArray[fruitLocation].innerHTML = "";
+    printSnake();
+    fruitLocation = spawnFruit();
+    document.getElementById("game-over").remove();
+  }
+  gameCounter++;
+  startBtn.classList.add("none");
+  gameBtn.classList.remove("none");
+  setTimeout(snakeMove, interval);
+});
+
+//Bottoni a schermo coi loro event listener
+let leftBtn = document.getElementById("left-btn");
+let rightBtn = document.getElementById("right-btn");
+let downBtn = document.getElementById("down-btn");
+let upBtn = document.getElementById("up-btn");
+//Event listener dei bottoni che cambiano movimento serpente
+leftBtn.addEventListener("click", () => {
+  if (movement != 1) movement = -1;
+});
+rightBtn.addEventListener("click", () => {
+  if (movement != -1) movement = 1;
+});
+upBtn.addEventListener("click", () => {
+  if (movement != width) movement = -width;
+});
+downBtn.addEventListener("click", () => {
+  if (movement != -width) movement = width;
+});
+//Event listener per i keypress
+document.addEventListener("keydown", (event) => {
+  console.log("hai premuto la freccetta:", event.code);
+  event.preventDefault();
+  switch (event.code) {
+    case "ArrowLeft":
+      document.getElementById("left-btn").click();
+      break;
+    case "ArrowUp":
+      document.getElementById("up-btn").click();
+      break;
+    case "ArrowRight":
+      document.getElementById("right-btn").click();
+      break;
+    case "ArrowDown":
+      document.getElementById("down-btn").click();
+      break;
+  }
+});
