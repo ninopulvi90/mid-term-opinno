@@ -2,7 +2,7 @@ let games = [
   {
     name: "Morra cinese",
     img: {
-      url: "",
+      url: "https://www.minibasket.info/wp/wp-content/uploads/2020/01/MorraCinese.png",
       alt: "Image of Rock-Paper-Scissors",
     },
     url: "sasso_carta_forbice/index.html",
@@ -10,7 +10,7 @@ let games = [
   {
     name: "Memory",
     img: {
-      url: "",
+      url: "https://www.york.ac.uk/media/news-and-events/pressreleases/2021/memory-505.jpg",
       alt: "Image of Memory",
     },
     url: "memory/memory.html",
@@ -18,7 +18,7 @@ let games = [
   {
     name: "Forza 4",
     img: {
-      url: "",
+      url: "https://a.silvergames.com/j/b/connect-4.jpg",
       alt: "Image of 4-in-a-row",
     },
     url: "forza_quattro/indexQ.html",
@@ -26,7 +26,7 @@ let games = [
   {
     name: "Snake",
     img: {
-      url: "",
+      url: "https://cdntattoofilter.com/tattoo/210457/l.jpg",
       alt: "Image of Snake",
     },
     url: "snake/snake_index.html",
@@ -34,7 +34,7 @@ let games = [
   {
     name: "Tetris",
     img: {
-      url: "",
+      url: "https://m.media-amazon.com/images/I/61M3rDwh4qL.png",
       alt: "Image of Tetris",
     },
     url: "",
@@ -42,7 +42,7 @@ let games = [
   {
     name: "Pacman",
     img: {
-      url: "",
+      url: "https://static.giochi123.net/game-images/pacman_big_v3.webp",
       alt: "Image of Pacman",
     },
     url: "",
@@ -50,7 +50,7 @@ let games = [
   {
     name: "Donkey Kong",
     img: {
-      url: "",
+      url: "https://multiplayer.net-cdn.it/thumbs/images/2021/10/16/donkey-kong-copertina_jpg_1200x0_crop_q85.jpg",
       alt: "Image of Donkey Kong",
     },
     url: "",
@@ -71,40 +71,14 @@ function createCard(idNumber, name, imgUrl, alt, destination) {
             </div>
         </div>
     `;
-  //   let domString = `
-  //       <div
-  //         id="card-${idNumber}"
-  //         class="card"
-  //         onclick="goToDestination(${destination})"
-  //       >
-  //           <div class="card-content">
-  //               <div class="img-container">
-  //                   <img
-  //                   src="${imgUrl}"
-  //                   alt="${alt}"
-  //                   />
-  //               </div>
-  //               <div class="text-container">
-  //                   <p>${name}</p>
-  //               </div>
-  //           </div>
-  //       </div>
-  //     `;
-
   let card = document.createElement("div");
-//   try {
-//     card.outerHTML = domString;
-//   } catch (e) {
-//     alert(e);
-//   } finally {
-//     return card;
-//   }
-console.log(card);
-    card.innerHTML = domString;
-    card.id = `card-${idNumber}`;
-    card.classList.add("card");
-    card.onclick = () => goToDestination(destination);
-    return card;
+
+  console.log(card);
+  card.innerHTML = domString;
+  card.id = `card-${idNumber}`;
+  card.classList.add("card");
+  card.onclick = () => goToDestination(destination);
+  return card;
 }
 
 window.goToDestination = function (destination) {
